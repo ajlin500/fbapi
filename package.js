@@ -1,10 +1,10 @@
 Package.describe({
-  name: 'fbapi',
+  name: 'andrew:fbapi',
   version: '0.0.1',
   // Brief, one-line summary of the package.
   summary: 'SDK for facebook\'s graph and marketing apis',
   // URL to the Git repository containing the source code for this package.
-  git: '',
+  git: 'https://github.com/ajlin500/fbapi',
   // By default, Meteor will default to using README.md for documentation.
   // To avoid submitting documentation, set this field to null.
   documentation: 'README.md'
@@ -26,7 +26,7 @@ Package.onUse(function(api) {
 Package.onTest(function(api) {
   api.use('coffeescript');
   api.use('sanjo:jasmine@0.15.4');
-  api.use('fbapi');
+  api.use('andrew:fbapi');
   api.addFiles('tests/server/fbauth.spec.coffee', 'server');
   api.addFiles('tests/server/fbapi.spec.coffee', 'server');
 });
