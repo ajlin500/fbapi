@@ -1,6 +1,6 @@
 Package.describe({
   name: 'andrew:fbapi',
-  version: '0.0.1',
+  version: '0.0.2',
   // Brief, one-line summary of the package.
   summary: 'SDK for facebook\'s graph and marketing apis',
   // URL to the Git repository containing the source code for this package.
@@ -16,6 +16,7 @@ Package.onUse(function(api) {
   api.use('http');
   api.use('accounts-facebook');
 
+  api.addFiles('config.coffee', 'server');
   api.addFiles('fbauth.coffee', 'server');
   api.addFiles('fbapi.coffee', 'server');
 
