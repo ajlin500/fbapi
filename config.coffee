@@ -4,7 +4,7 @@ if Meteor.isServer
     env = 'production'
   else
     env = 'dev'
-  if Meteor.settings
+  if Meteor.settings?.facebook?
     ServiceConfiguration.configurations.upsert
       service: 'facebook'
     ,
