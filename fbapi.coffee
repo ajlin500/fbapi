@@ -93,3 +93,41 @@ class FbApi
   createAd: (adAccount, params = {}) ->
     url = "/#{adAccount}/adgroups"
     @post url, params
+
+  # Docs: https://developers.facebook.com/docs/marketing-api/targeting-search/v2.4
+  search: (params = {}) ->
+    url = "/search"
+    @get(url, params).data
+
+  ###
+  # Edges
+  #   Valid objectIds:
+  #
+  #   Docs: https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group
+  #   AdCampaign: adcampaigns(ad sets), adgroups(ads), insights, stats
+  #
+  #   Docs: https://developers.facebook.com/docs/marketing-api/reference/ad-campaign
+  #   AdSets: activities, adcreatives, adgroups(ads), asyncadgrouprequests,
+  #     reachestimate, targetingsentencelines, insights, conversions, stats
+  #
+  #   Docs: https://developers.facebook.com/docs/marketing-api/adgroup/v2.4
+  #   Ad: adcreatives, keywordstats, previews, reachestimate, stats,
+  #     targetingsentencelines, trackingtag, conversions, insights
+  #
+  ###
+  getAdsEdge: (objectId, params = {}) ->
+    url = "/#{objectId}/adgroups"
+    @get(url, params).data
+
+  getAdSetsEdge: (objectId, params = {}) ->
+    url = "/#{objectId}/adcampaigns"
+    @get(url, params).data
+
+  getInsightsEdge: (objectId, params = {}) ->
+    url = "/#{objectId}/insights"
+    @get(url, params).data
+
+  getReachEstimateEdge: (objectId, params = {}) ->
+    url = "/#{objectId}/reachestimate"
+    @get(url, params).data
+
