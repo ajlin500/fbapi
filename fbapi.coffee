@@ -94,7 +94,8 @@ class FbApi
     url = "/#{adAccount}/adgroups"
     @post url, params
 
-  # Docs: https://developers.facebook.com/docs/marketing-api/targeting-search/v2.4
+  # Docs:
+  # https://developers.facebook.com/docs/marketing-api/targeting-search/v2.4
   search: (params = {}) ->
     url = "/search"
     @get(url, params).data
@@ -103,14 +104,17 @@ class FbApi
   # Edges
   #   Valid objectIds:
   #
-  #   Docs: https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group
+  #   Docs:
+  #   https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group
   #   AdCampaign: adcampaigns(ad sets), adgroups(ads), insights, stats
   #
-  #   Docs: https://developers.facebook.com/docs/marketing-api/reference/ad-campaign
+  #   Docs:
+  #   https://developers.facebook.com/docs/marketing-api/reference/ad-campaign
   #   AdSets: activities, adcreatives, adgroups(ads), asyncadgrouprequests,
   #     reachestimate, targetingsentencelines, insights, conversions, stats
   #
-  #   Docs: https://developers.facebook.com/docs/marketing-api/adgroup/v2.4
+  #   Docs:
+  #   https://developers.facebook.com/docs/marketing-api/adgroup/v2.4
   #   Ad: adcreatives, keywordstats, previews, reachestimate, stats,
   #     targetingsentencelines, trackingtag, conversions, insights
   #
