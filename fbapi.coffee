@@ -119,17 +119,30 @@ class FbApi
   #     targetingsentencelines, trackingtag, conversions, insights
   #
   ###
-  getAdsEdge: (objectId, params = {}) ->
+  getAdsEdge: (objectId, params = {}, pageThroughResults = false) ->
     url = "/#{objectId}/adgroups"
-    @get(url, params).data
+    response = @get(url, params)
+    if pageThroughResults
+      return @pageThroughResults response
+    else
+      return response.data
+    
 
-  getAdSetsEdge: (objectId, params = {}) ->
+  getAdSetsEdge: (objectId, params = {}, pageThroughResults = false) ->
     url = "/#{objectId}/adcampaigns"
-    @get(url, params).data
+    response = @get(url, params)
+    if pageThroughResults
+      return @pageThroughResults response
+    else
+      return response.data
 
-  getInsightsEdge: (objectId, params = {}) ->
+  getInsightsEdge: (objectId, params = {}, pageThroughResults = false) ->
     url = "/#{objectId}/insights"
-    @get(url, params).data
+    response = @get(url, params)
+    if pageThroughResults
+      return @pageThroughResults response
+    else
+      return response.data
 
   getReachEstimateEdge: (objectId, params = {}) ->
     url = "/#{objectId}/reachestimate"
