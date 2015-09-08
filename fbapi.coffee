@@ -32,7 +32,7 @@ class FbApi
 
   pageThroughResults: (response, data = []) ->
     data = data.concat response.data
-    next = response.paging.next
+    next = response.paging?.next
     if next
       response = @_call next
       return pageThroughResults response, data
@@ -100,6 +100,14 @@ class FbApi
     url = "/search"
     @get(url, params).data
 
+  updateObject: (objectId, params = {}) ->
+    url = "/#{objectId}"
+    @post url, params
+
+  getObject: (objectId, params = {}) ->
+    url = "/#{objectId}"
+    @get url, params
+
   ###
   # Edges
   #   Valid objectIds:
@@ -121,16 +129,16 @@ class FbApi
   ###
   getAdsEdge: (objectId, params = {}, pageThroughResults = false) ->
     url = "/#{objectId}/adgroups"
-    response = @get(url, params)
+    response = @get url, params
     if pageThroughResults
       return @pageThroughResults response
     else
       return response.data
-    
+
 
   getAdSetsEdge: (objectId, params = {}, pageThroughResults = false) ->
     url = "/#{objectId}/adcampaigns"
-    response = @get(url, params)
+    response = @get url, params
     if pageThroughResults
       return @pageThroughResults response
     else
@@ -138,7 +146,7 @@ class FbApi
 
   getInsightsEdge: (objectId, params = {}, pageThroughResults = false) ->
     url = "/#{objectId}/insights"
-    response = @get(url, params)
+    response = @get url, params
     if pageThroughResults
       return @pageThroughResults response
     else
