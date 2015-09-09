@@ -33,9 +33,9 @@ class FbApi
   pageThroughResults: (response, data = []) ->
     data = data.concat response.data
     next = response.paging?.next
-    if next
-      response = @_call next
-      return pageThroughResults response, data
+    if next isnt undefined
+      response = @_call 'GET', next
+      return @pageThroughResults response, data
     else
       return data
 
