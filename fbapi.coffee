@@ -41,17 +41,15 @@ class FbApi
 
   # Docs:
   # https://developers.facebook.com/docs/graph-api/reference/user/accounts/
-  getUserPages: ->
+  getUserPages: (params = {}) ->
     url = '/me/accounts'
-    response = @get url
+    response = @get url, params
     @pageThroughResults response
 
   # Docs:
   # https://developers.facebook.com/docs/marketing-api/reference/ad-account
-  getUserAdAccounts: ->
+  getUserAdAccounts: (params = {}) ->
     url = '/me/adaccounts'
-    params =
-      fields: 'name, account_status'
     response = @get url, params
     @pageThroughResults response
 
