@@ -9,7 +9,7 @@ class FbApi
       @auth = fbAuth
 
   baseApiUrl: 'https://graph.facebook.com'
-  version: 'v2.4'
+  version: 'v2.5'
   api: ->
     return "#{@baseApiUrl}/#{@version}"
 
@@ -77,19 +77,19 @@ class FbApi
   # Docs:
   # https://developers.facebook.com/docs/marketing-api/reference/ad-campaign-group
   createAdCampaign: (adAccount, params = {}) ->
-    url = "/#{adAccount}/adcampaign_groups/"
+    url = "/#{adAccount}/campaigns"
     @post url, params
 
   # Docs:
   # https://developers.facebook.com/docs/marketing-api/reference/ad-campaign
   createAdSet: (adAccount, params = {}) ->
-    url = "/#{adAccount}/adcampaigns"
+    url = "/#{adAccount}/adsets"
     @post url, params
 
   # Docs:
   # https://developers.facebook.com/docs/marketing-api/adgroup/v2.4
   createAd: (adAccount, params = {}) ->
-    url = "/#{adAccount}/adgroups"
+    url = "/#{adAccount}/ads"
     @post url, params
 
   # Docs:
