@@ -9,7 +9,7 @@ class FbApi
       @auth = fbAuth
 
   baseApiUrl: 'https://graph.facebook.com'
-  version: 'v2.5'
+  version: 'v2.6'
   api: ->
     return "#{@baseApiUrl}/#{@version}"
 
@@ -153,4 +153,3 @@ class FbApi
   getReachEstimateEdge: (objectId, params = {}) ->
     url = "/#{objectId}/reachestimate"
     @get(url, params).data
-
