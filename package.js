@@ -1,6 +1,6 @@
 Package.describe({
   name: 'andrew:fbapi',
-  version: '0.0.11',
+  version: '0.0.12',
   // Brief, one-line summary of the package.
   summary: 'SDK for facebook\'s graph and marketing apis',
   // URL to the Git repository containing the source code for this package.
